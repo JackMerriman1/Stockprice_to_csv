@@ -3,7 +3,6 @@ import json
 import requests
 from IPython.display import display
 import time
-import sys
 import tkinter as tk
 
 def create_url(ticker_symbol, start_date, end_date, api_key):
