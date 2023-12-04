@@ -11,5 +11,9 @@ How to use the program!
 NOTES: Every time you click Fetch Data the program will generate a new CSV file.
 I.E if you want multiple CSV files representing different ticker symbols just edit the ticker field and press Fetch Data, no need to restart the program. :)
 
+To turn into an .exe file you can either use 3rd party software, or download python and enter the following into you command prompt:
+pyinstaller --onefile Path\To\File\Python_Script.py
+
+
 Author - Jack Merriman
 Email - jack.merriman2@gmail.com
