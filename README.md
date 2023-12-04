@@ -4,7 +4,7 @@ This program will generate a CSV file viewable in Excel/Google sheets, located w
 How to use the program!
 1. Go to https://polygon.io/dashboard/api-keys
 	a. Create an account and generate an API Key, you will need to enter this into the Api Key field in the program
-2. Run the Stock_Price_To_CSV_EXE file
+2. Run the Stock_Price_To_CSV file
 3. Enter the corresponding information into each field, make sure the format is correct for the start and end date field otherwise it will not work.
 4. Go to the folder this program is located in to find your CSV file.
 
