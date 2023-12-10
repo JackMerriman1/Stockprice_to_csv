@@ -3,7 +3,6 @@ import json
 import requests
 from IPython.display import display
 import time
-import sys
 import tkinter as tk
 import matplotlib.pyplot as plt
 
