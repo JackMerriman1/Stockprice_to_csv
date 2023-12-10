@@ -3,7 +3,9 @@ import json
 import requests
 from IPython.display import display
 import time
+import sys
 import tkinter as tk
+import matplotlib.pyplot as plt
 
 def create_url(ticker_symbol, start_date, end_date, api_key):
     
@@ -37,16 +39,48 @@ def create_csv(ticker_symbol, start_date, end_date, api_key):
     
     url = create_url(ticker_symbol, start_date, end_date, api_key)
     dataframe = create_dataframe(url)
+    display(dataframe)
     dataframe.to_csv(f"{ticker_symbol} Stock prices {start_date} to {end_date}.csv")
+
 
 def fetch_data():
     
-    ticker_symbol = ticker_entry.get().upper
+    ticker_symbol = ticker_entry.get()
     start_date = start_date_entry.get()
     end_date = end_date_entry.get()
     api_key = api_key_entry.get()
 
     create_csv(ticker_symbol, start_date, end_date, api_key)
+
+def create_plot():
+    
+    ticker_symbol = ticker_entry.get().upper()
+    start_date = start_date_entry.get()
+    end_date = end_date_entry.get()
+    
+    plot_df = pd.read_csv(f'{ticker_symbol} Stock prices {start_date} to {end_date}.csv')
+    dates_list = list(plot_df["Start Date/Time"])
+    dates_list = list(map(lambda x: x[:10],dates_list))
+    highs_list = list(plot_df["Highest Price"])
+    lows_list = list(plot_df["Lowest Price"])
+
+    # Plot the first line
+    plt.plot(dates_list, highs_list, label='Highs')
+
+    # Plot the second line
+    plt.plot(dates_list, lows_list, label='Lows')
+
+    # Add labels and a legend
+    plt.xlabel('Date')
+    plt.ylabel('Price')
+    plt.title(f'{ticker_symbol} Stock prices {start_date} to {end_date}')
+
+    plt.xticks(rotation='vertical')
+    plt.legend()
+
+    # Show the plot
+    plt.show()
+
 
 root = tk.Tk()
 root.title("Stock Price to CSV")
@@ -69,14 +103,16 @@ api_key_entry = tk.Entry(root)
 api_key_entry.grid(row=3, column=1, padx=10, pady=10)
 
 # Create and place the button
-fetch_button = tk.Button(root, text="Fetch Data", command=fetch_data)
+fetch_button = tk.Button(root, text="Generate CSV File", command=fetch_data)
 fetch_button.grid(row=4, column=0, columnspan=2, pady=10)
 
-
-
+# Createa dna place generate plot button
+fetch_button = tk.Button(root, text="Generate Plot", command=create_plot)
+fetch_button.grid(row=5, column=0, columnspan=2, pady=10)
 
 # Run the Tkinter main loop
 root.mainloop()
+
 
 
 
