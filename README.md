@@ -1,5 +1,6 @@
 # Stockprice_to_csv
-This program will generate a CSV file viewable in Excel/Google sheets, located within this folder, with data regarding the prices of stocks.  All you need to do is follow the instrucitons below:
+This program will generate a CSV file viewable in Excel/Google sheets, located within this folder, with data regarding the prices of stocks.  It can also generate a Matplotlib chart with highs and lows represented.
+All you need to do is follow the instrucitons below:
 
 How to use the program!
 
