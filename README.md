@@ -14,7 +14,7 @@ Generate CSV
 In order to Generate a Matplotlib chart you must first generate a CSV
 
 NOTES: Every time you click Generate CSV the program will generate a new CSV file.
-I.E if you want multiple CSV files representing different ticker symbols just edit the ticker field and press Fetch Data, no need to restart the program. :)
+I.E if you want multiple CSV files representing different ticker symbols just edit the ticker field and click Generate CSV, no need to restart the program. :)
 
 To turn into an .exe file you can either use 3rd party software, or download python and enter the following into you command prompt:
 pyinstaller --onefile Path\To\File\Python_Script.py
